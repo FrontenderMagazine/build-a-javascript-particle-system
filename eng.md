@@ -1,7 +1,7 @@
 Build a javascript particle system in 200 lines
 ------------------------------------------------------------
 
-![](http://html5hub.com/wp-content/uploads/2013/08/particle_system1-600x300.png)
+![particle_system][particle_system]
 
 In less than 200 lines of vanilla JavaScript you will have a flexible particle
 system with multiple emitters and fields that repel and attract thousands of 
@@ -16,8 +16,7 @@ during that time.
 
 The biggest takeaway from this project was just how insignificant the barrier
 to entry is for graphic development right now. If you have a text editor and a 
-browser, you can make engaging visualizations or even video games
- *right now*.
+browser, you can make engaging visualizations or even video games *right now*.
 
 ## [][3]Setting up your environment
 
@@ -76,8 +75,8 @@ fill the entire window
 
 ## [][8]The Animation Loop
 
-The animation loop is the first foreign concept you’ll come across if you’
-re coming from traditional application development. When dealing with graphics 
+The animation loop is the first foreign concept you’ll come across if you’re
+coming from traditional application development. When dealing with graphics 
 in this way you’ll want to manage your state of the system separately from the 
 drawing so you’ll have two distinct steps for the update and the draw. You’ll 
 also need to clear the current canvas and then queue up the next animation cycle.
@@ -167,8 +166,8 @@ acceleration. Each of these can be represented by a two dimensional vector so we
 ### [][12]Vector
 
 This object will be used **often**. If we’re animating 10,000 particles at 30
-frames per second and we’re using a Vector for 3 properties of each particle (
-not including interstitial and end states) we’re creating and throwing away 
+frames per second and we’re using a Vector for 3 `properties` of each particle (
+not including interstitial and end states) we’re *creating* and throwing away 
 almost one million objects every second. Given that usage, Vector is a obvious 
 target for optimization. While I’ll take into account some performance 
 optimizations elsewhere, I’ll be opting for readability over performance more 
@@ -283,8 +282,8 @@ which can be simple arrays.
     var emitters = [new Emitter(new Vector(100, 230), Vector.fromAngle(0, 2))],
 
 What might our update function look like? We’d need to generate new particles
-and them move them. We might want to bound them to a certain rectangle so we don
-’t have to occupy the entire canvas at all times.
+and then move them. We might want to bound them to a certain rectangle so we don’t
+have to occupy the entire canvas at all times.
 
     // new update() function called from our animation loop
     function update() {
@@ -342,8 +341,8 @@ with being bound by the canvas.
       particles = currentParticles;
     }
 
-Our state is now being updated every frame, and we just need to draw something
-. We’re simply drawing squares here but you could draw sparks, smoke, water, 
+Our state is now being updated every frame, and we just need to draw something.
+We’re simply drawing squares here but you could draw sparks, smoke, water, 
 birds or falling leaves. Particles! They’re everything and everywhere!
 
     var particleSize = 1;
@@ -489,27 +488,26 @@ You can try the following combinations of emitters and fields.
 
 [demo][21]
 
- [1]: http://jarrodoverson.com/static/demos/particleSystem/
+[particle_system]: img/particle_system1-600x300.png
 
- [2]: http://www.chromeexperiments.com/detail/gravitational-particle-system-sandbox/?f=
-
- [3]: https://github.com/jsoverson/html5hub-particlesystem#setting-up-your-environment
- [4]: https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Canvas_tutorial
- [5]: https://www.google.com/search?q=canvas+tutorials&oq=canvas+tutorials
- [6]: https://github.com/jsoverson/html5hub-particlesystem#the-canvas-object
- [7]: https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D
- [8]: https://github.com/jsoverson/html5hub-particlesystem#the-animation-loop
-
- [9]: https://developer.mozilla.org/en-US/docs/Web/API/window.requestAnimationFrame
- [10]: http://www.paulirish.com/2011/requestanimationframe-for-smart-animating/
- [11]: https://github.com/jsoverson/html5hub-particlesystem#particle-basics
- [12]: https://github.com/jsoverson/html5hub-particlesystem#vector
- [13]: https://github.com/jsoverson/html5hub-particlesystem#particle
- [14]: https://github.com/jsoverson/html5hub-particlesystem#particle-emitter
- [15]: https://github.com/jsoverson/html5hub-particlesystem#our-first-animation
- [16]: http://cdpn.io/chGDt
- [17]: https://github.com/jsoverson/html5hub-particlesystem#adding-fields
- [18]: https://github.com/jsoverson/html5hub-particlesystem#demos
- [19]: http://cdpn.io/KtxmA
- [20]: http://cdpn.io/pkEqs
- [21]: http://cdpn.io/zyGln
+[1]: http://jarrodoverson.com/static/demos/particleSystem/
+[2]: http://www.chromeexperiments.com/detail/gravitational-particle-system-sandbox/?f=
+[3]: https://github.com/jsoverson/html5hub-particlesystem#setting-up-your-environment
+[4]: https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Canvas_tutorial
+[5]: https://www.google.com/search?q=canvas+tutorials&oq=canvas+tutorials
+[6]: https://github.com/jsoverson/html5hub-particlesystem#the-canvas-object
+[7]: https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D
+[8]: https://github.com/jsoverson/html5hub-particlesystem#the-animation-loop
+[9]: https://developer.mozilla.org/en-US/docs/Web/API/window.requestAnimationFrame
+[10]: http://www.paulirish.com/2011/requestanimationframe-for-smart-animating/
+[11]: https://github.com/jsoverson/html5hub-particlesystem#particle-basics
+[12]: https://github.com/jsoverson/html5hub-particlesystem#vector
+[13]: https://github.com/jsoverson/html5hub-particlesystem#particle
+[14]: https://github.com/jsoverson/html5hub-particlesystem#particle-emitter
+[15]: https://github.com/jsoverson/html5hub-particlesystem#our-first-animation
+[16]: http://cdpn.io/chGDt
+[17]: https://github.com/jsoverson/html5hub-particlesystem#adding-fields
+[18]: https://github.com/jsoverson/html5hub-particlesystem#demos
+[19]: http://cdpn.io/KtxmA
+[20]: http://cdpn.io/pkEqs
+[21]: http://cdpn.io/zyGln
